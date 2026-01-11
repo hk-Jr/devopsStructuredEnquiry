@@ -1,9 +1,4 @@
-# ============================================
-#  Hospital Appointment & Patient Record System
-#  MAIN BRANCH
-# ============================================
 
-# Data storage
 patients = {}
 
 # Add base patients
@@ -19,9 +14,7 @@ patients["P2"] = {
     "disease": "Migraine"
 }
 
-# --------------------------------
-# Function to return formatted data
-# --------------------------------
+
 def get_patient_summary(patient_id):
     patient = patients.get(patient_id)
 
@@ -34,3 +27,15 @@ def get_patient_summary(patient_id):
         f"Age: {patient['age']}\n"
         f"Disease: {patient['disease']}"
     )
+
+if __name__ == "__main__":
+    print("HOSPITAL MANAGEMENT SYSTEM\n")
+
+    print("Fetching Patient P1 details:\n")
+    print(get_patient_summary("P1"))
+
+    print("\nFetching Patient P2 details:\n")
+    print(get_patient_summary("P2"))
+
+    print("\nFetching unknown patient:\n")
+    print(get_patient_summary("P99"))
