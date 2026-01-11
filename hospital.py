@@ -1,117 +1,53 @@
-# =====================================================
-#  Hospital Appointment & Patient Record Management
-#  MAIN BRANCH (Stable Base)
-# =====================================================
+# ============================================
+#  Hospital Appointment & Patient Record System
+#  MAIN BRANCH – Base Prototype
+# ============================================
 
-print("\n======================================")
-print("   HOSPITAL MANAGEMENT SYSTEM")
-print("======================================")
+print("HOSPITAL MANAGEMENT SYSTEM\n")
 
-# -------------------------------
-# In-memory storage (empty now)
-# -------------------------------
+# Data storage
 patients = {}
 appointments = {}
 
-# -------------------------------
-# Utility Functions
-# -------------------------------
+# ----------------------------
+# Adding patients (base data)
+# ----------------------------
 
-def generate_patient_id():
-    return f"P{len(patients) + 1}"
+patients["P1"] = {
+    "name": "Amit Sharma",
+    "age": 30,
+    "disease": "Flu"
+}
 
-def generate_appointment_id():
-    return f"A{len(appointments) + 1}"
+patients["P2"] = {
+    "name": "Neha Verma",
+    "age": 25,
+    "disease": "Migraine"
+}
 
-# -------------------------------
-# System Functions
-# -------------------------------
+print("Patients added to system.\n")
 
-def system_status():
-    return "Hospital System Running"
+# ----------------------------
+# Display all patients
+# ----------------------------
 
-# -------------------------------
-# Patient Module (BASE)
-# -------------------------------
+print("Patient Records:")
+print("----------------")
 
-def patient_menu():
-    print("\n--- Patient Management ---")
-    print("1. Register Patient (Not Implemented)")
-    print("2. View Patients (Not Implemented)")
-    print("3. Back")
+print("ID: P1")
+print("Name:", patients["P1"]["name"])
+print("Age:", patients["P1"]["age"])
+print("Disease:", patients["P1"]["disease"])
+print()
 
-    choice = input("Enter choice: ")
+print("ID: P2")
+print("Name:", patients["P2"]["name"])
+print("Age:", patients["P2"]["age"])
+print("Disease:", patients["P2"]["disease"])
+print()
 
-    if choice == "1":
-        print("\nPatient registration will be added in feature-patients branch")
+# ----------------------------
+# System status
+# ----------------------------
 
-    elif choice == "2":
-        print("\nPatient viewing will be added in feature-patients branch")
-
-    elif choice == "3":
-        return
-    else:
-        print("\nInvalid choice")
-
-# -------------------------------
-# Appointment Module (BASE)
-# -------------------------------
-
-def appointment_menu():
-    print("\n--- Appointment Management ---")
-    print("1. Book Appointment (Not Implemented)")
-    print("2. View Appointments (Not Implemented)")
-    print("3. Back")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":
-        print("\nAppointment booking will be added in feature-appointments branch")
-
-    elif choice == "2":
-        print("\nAppointment viewing will be added in feature-appointments branch")
-
-    elif choice == "3":
-        return
-    else:
-        print("\nInvalid choice")
-
-# -------------------------------
-# Main Menu
-# -------------------------------
-
-def main_menu():
-    print("\n====== Main Menu ======")
-    print("1. System Status")
-    print("2. Patient Management")
-    print("3. Appointment Management")
-    print("4. Exit")
-
-# -------------------------------
-# Program Entry
-# -------------------------------
-
-def main():
-    while True:
-        main_menu()
-        choice = input("Enter choice: ")
-
-        if choice == "1":
-            print("\nStatus:", system_status())
-
-        elif choice == "2":
-            patient_menu()
-
-        elif choice == "3":
-            appointment_menu()
-
-        elif choice == "4":
-            print("\nExiting Hospital System...")
-            break
-
-        else:
-            print("\nInvalid option. Try again.")
-
-# Start system
-if __name__ == "__main__":
-    main()
+print("System Status: Hospital system is running.")
