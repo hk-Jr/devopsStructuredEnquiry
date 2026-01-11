@@ -1,31 +1,36 @@
-# Hospital Management System - Base Version (Main Branch)
+# ============================================
+#  Hospital Appointment & Patient Record System
+#  MAIN BRANCH
+# ============================================
 
-print("===================================")
-print("  HOSPITAL MANAGEMENT SYSTEM")
-print("===================================")
+# Data storage
+patients = {}
 
-def system_status():
-    return "System is running"
+# Add base patients
+patients["P1"] = {
+    "name": "Amit Sharma",
+    "age": 30,
+    "disease": "Flu"
+}
 
-def show_menu():
-    print("\nMain Menu")
-    print("1. Check system status")
-    print("2. Exit")
+patients["P2"] = {
+    "name": "Neha Verma",
+    "age": 25,
+    "disease": "Migraine"
+}
 
-def main():
-    while True:
-        show_menu()
-        choice = input("Enter choice: ")
+# --------------------------------
+# Function to return formatted data
+# --------------------------------
+def get_patient_summary(patient_id):
+    patient = patients.get(patient_id)
 
-        if choice == "1":
-            print("\nStatus:", system_status())
+    if patient is None:
+        return "Patient not found"
 
-        elif choice == "2":
-            print("\nExiting system...")
-            break
-
-        else:
-            print("\nInvalid option. Try again.")
-
-if __name__ == "__main__":
-    main()
+    return (
+        f"Patient ID: {patient_id}\n"
+        f"Name: {patient['name']}\n"
+        f"Age: {patient['age']}\n"
+        f"Disease: {patient['disease']}"
+    )
